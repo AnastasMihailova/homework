@@ -1,15 +1,28 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class homework2 {
     public static void main(String[] args) {
-        int[] a = new int[]{5,6,3,2,5,1,4,9};
-        for(int i = a.length-1 ; i > 0 ; i--){
-            for(int j = 0 ; j < i ; j++){
-            if( a[j] > a[j+1] ){
-                int tmp = a[j];
-                a[j] = a[j+1];
-                a[j+1] = tmp;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите размер создаваемого массива:");
+        int size = sc.nextInt();
+        int[] myArray = new int[size];
+        System.out.println("Введите элементы массива:");
+
+        for(int i = 0; i<size; i++) {
+            myArray[i] = sc.nextInt();
+        }
+        for(int i = 0; i<size-1; i++) {
+            for (int j = i+1; j<myArray.length; j++) {
+                if(myArray[i] > myArray[j]) {
+                    int temp = myArray[i];
+                    myArray[i] = myArray[j];
+                    myArray[j] = temp;
+                }
             }
         }
+        System.out.println(Arrays.toString(myArray));
     }
     }
-}
+
 
